@@ -25,11 +25,12 @@ def create_ball(space, radius, mass, position):
     shape.color = (255, 0, 0, 100)
     shape.elasticity = 0.9
     shape.friction = 0.4
+    shape.collision_type = 0
     space.add(body, shape)
     
     return shape
 
-def create_mesa(space, width, y_pos, thickness=10):
+def create_table(space, width, y_pos, thickness=10):
     body = pymunk.Body(body_type=pymunk.Body.STATIC)
     body.position = (width/2, y_pos)
     shape = pymunk.Poly.create_box(body, (width, thickness))
@@ -91,3 +92,18 @@ def create_ramps(space, start_x, start_y, ramp_length=200, drop_height=80, thick
     ramp4.friction = 0.7
     ramp4.elasticity = 0.2
     space.add(body4, ramp4)
+
+def create_domino(pos_x, pos_y, width, height, mass, friction, elasticity, space):
+    """Creates a Pymunk body and shape for a domino."""
+    body = pymunk.Body(mass, pymunk.moment_for_box(mass, (width, height)))
+    # Position is the center of mass, place bottom center at (pos_x, pos_y)
+    body.position = (pos_x, pos_y)
+    shape = pymunk.Poly.create_box(body, (width, height))
+    shape.friction = friction
+    shape.elasticity = elasticity
+    shape.collision_type = 1
+    # Store dimensions on shape for drawing (optional but convenient)
+    shape.width = width
+    shape.height = height
+    space.add(body, shape)
+    return body, shape
