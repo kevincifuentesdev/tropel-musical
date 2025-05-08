@@ -133,6 +133,10 @@ def create_domino(
     """
     Crea un dominó en el espacio físico.
 
+    Esta función fue tomada de **ettskd** (Usuario de Github) y adaptada para este proyecto.
+
+    Fuente original: [python-domino Repository](https://github.com/ettskd/python-domino/blob/main/domino.py)
+
     :param pos_x: Posición en X del dominó.
     :param pos_y: Posición en Y del dominó.
     :param width: Ancho del dominó.
