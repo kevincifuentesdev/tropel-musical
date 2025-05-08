@@ -1,5 +1,7 @@
 # Tropel Musical Simulation
 
+[Read in English](./README.md)
+
 ## Autores
 
 - Kevin Sebastián Cifuentes López
