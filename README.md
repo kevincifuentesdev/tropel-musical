@@ -1,62 +1,62 @@
 # Tropel Musical Simulation
 
-## Autores
+## Authors
 
 - Kevin Sebastián Cifuentes López
 - Mariana Lopera Correa
 - Emanuel García Ríos
 
-## Descripción
+## Description
 
-Tropel Musical es una simulación física interactiva que utiliza Pygame y Pymunk para modelar un sistema de dominós, rampas y bolas. El objetivo es proporcionar una experiencia visual y educativa sobre cómo funcionan las interacciones físicas en un entorno simulado.
+Tropel Musical is an interactive physics simulation that uses Pygame and Pymunk to model a system of dominoes, ramps, and balls. The goal is to provide a visual and educational experience about how physical interactions work in a simulated environment.
 
 ---
 
-## Cómo Ejecutar el Proyecto
+## How to Run the Project
 
-### Clonación
+### Cloning
 
-1. Clona este repositorio en tu máquina local:
+1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/tu-usuario/tropel-musical.git
+   git clone https://github.com/your-username/tropel-musical.git
    ```
 
-   **Nota:** Si deseas realizar cambios, por favor haz un fork del repositorio y trabaja en tu propio fork.
+   **Note:** If you want to make changes, please fork the repository and work on your own fork.
 
-### Instalación de Dependencias
+### Installing Dependencies
 
-Este proyecto utiliza `poetry` para la gestión de dependencias. Si no tienes `poetry` instalado, sigue las instrucciones en la [documentación oficial de Poetry](https://python-poetry.org/docs/).
+This project uses `poetry` for dependency management. If you don't have `poetry` installed, follow the instructions in the [official Poetry documentation](https://python-poetry.org/docs/).
 
-1. Instala `poetry` (si no lo tienes):
+1. Install `poetry` (if you don't have it):
 
    ```bash
    curl -sSL https://install.python-poetry.org | python3 -
    ```
 
-2. Navega al directorio del proyecto:
+2. Navigate to the project directory:
 
    ```bash
    cd tropel-musical
    ```
 
-3. Instala las dependencias:
+3. Install the dependencies:
 
    ```bash
    poetry install --no-root
    ```
 
-### Cómo Correr la Interfaz de Usuario
+### Running the User Interface
 
-1. Activa el ambiente virtual de `poetry`:
+1. Activate the `poetry` virtual environment:
 
-   **Nota:** ve a la página oficial de Poetry para verificar como se activa el ambiente virtual, es importante que lo actives para que puedas ejecutar con normalidad el proyecto dentro de tu ambiente virtual usando el interprete del ambiente. [Activación del ambiente](https://python-poetry.org/docs/managing-environments/#bash-csh-zsh)
+   **Note:** Visit the official Poetry page to check how to activate the virtual environment. It is important to activate it to run the project smoothly within your virtual environment using its interpreter. [Environment Activation](https://python-poetry.org/docs/managing-environments/#bash-csh-zsh)
 
    ```bash
    eval $(poetry env activate)
    ```
 
-2. Ejecuta el archivo principal para iniciar la simulación:
+2. Run the main file to start the simulation:
 
    ```bash
    python src/view/gui/tropel_musical_gui.py
@@ -64,9 +64,9 @@ Este proyecto utiliza `poetry` para la gestión de dependencias. Si no tienes `p
 
 ---
 
-## Estructura del Proyecto
+## Project Structure
 
-La estructura del proyecto es la siguiente:
+The project structure is as follows:
 
 ```bash
 tropel-musical/
@@ -81,39 +81,39 @@ tropel-musical/
 │   │       └── tropel_musical_gui.py
 ```
 
-- **README.md**: Documentación del proyecto.
-- **poetry.lock** y **pyproject.toml**: Archivos de configuración de `poetry` para la gestión de dependencias.
-- **src/**: Carpeta principal del código fuente.
-  - **model/**: Contiene la lógica del modelo físico.
-  - **view/gui/**: Contiene la interfaz gráfica de usuario.
+- **README.md**: Project documentation.
+- **poetry.lock** and **pyproject.toml**: `poetry` configuration files for dependency management.
+- **src/**: Main source code folder.
+  - **model/**: Contains the logic for the physical model.
+  - **view/gui/**: Contains the graphical user interface.
 
 ---
 
-## Explicación del Código
+## Code Explanation
 
 ### `tropel_musical_model.py`
 
-Este archivo contiene las funciones principales para crear los elementos físicos de la simulación:
+This file contains the main functions to create the physical elements of the simulation:
 
-- **`create_boundaries`**: Define los límites del espacio físico.
-- **`create_ball`**: Crea una bola con propiedades físicas específicas.
-- **`create_table`**: Genera una mesa estática en el espacio.
-- **`create_ramps`**: Crea una serie de rampas alternadas.
-- **`create_domino`**: Genera un dominó con propiedades físicas.
+- **`create_boundaries`**: Defines the boundaries of the physical space.
+- **`create_ball`**: Creates a ball with specific physical properties.
+- **`create_table`**: Generates a static table in the space.
+- **`create_ramps`**: Creates a series of alternating ramps.
+- **`create_domino`**: Generates a domino with physical properties.
 
 ### `tropel_musical_gui.py`
 
-Este archivo contiene la lógica para la interfaz gráfica y el bucle principal del programa:
+This file contains the logic for the graphical interface and the main program loop:
 
-- **`draw`**: Dibuja los elementos del espacio físico en la ventana de Pygame.
-- **`ball_hits_domino`**: Maneja las colisiones entre la bola y los dominós.
-- **`create_dominoes`**: Crea una fila de dominós en el espacio.
-- **`run`**: Ejecuta el bucle principal, manejando eventos y actualizando la simulación.
+- **`draw`**: Draws the physical elements in the Pygame window.
+- **`ball_hits_domino`**: Handles collisions between the ball and the dominoes.
+- **`create_dominoes`**: Creates a row of dominoes in the space.
+- **`run`**: Runs the main loop, handling events and updating the simulation.
 
-Con esta estructura, el proyecto combina la lógica física con una interfaz gráfica interactiva para simular un sistema dinámico de objetos.
+With this structure, the project combines physical logic with an interactive graphical interface to simulate a dynamic system of objects.
 
 ---
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](./LICENSE).
+This project is licensed under the MIT License. For more details, see the [LICENSE](./LICENSE) file.
