@@ -117,15 +117,16 @@ def run(window: pygame.Surface, width: int, height: int) -> None:
     create_ball(space, radius=15, mass=0.2, position=(780, GROUND_Y))
 
     running = True
-    ball: Optional[pymunk.Shape] = None
+    create_ball(space, radius=15, mass=0.5, position=(437, 53))
 
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:  # Clic derecho
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
                 x, y = pygame.mouse.get_pos()
-                ball = create_ball(space, radius=15, mass=0.5, position=(x, y))
+
+                print((x, y))
 
         draw(space, window, draw_options)
         space.step(DELTA_TIME)
