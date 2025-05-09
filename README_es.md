@@ -42,7 +42,13 @@ Este proyecto utiliza `poetry` para la gestión de dependencias. Si no tienes `p
    cd tropel-musical
    ```
 
-3. Instala las dependencias:
+3. Configura Poetry para crear los entornos virtuales dentro del directorio del proyecto:
+
+   ```bash
+   poetry config virtualenvs.in-project true
+   ```
+
+4. Instala las dependencias:
 
    ```bash
    poetry install --no-root

@@ -42,7 +42,13 @@ This project uses `poetry` for dependency management. If you don't have `poetry`
    cd tropel-musical
    ```
 
-3. Install the dependencies:
+3. Configure Poetry to create virtual environments inside the project directory:
+
+   ```bash
+   poetry config virtualenvs.in-project true
+   ```
+
+4. Install the dependencies:
 
    ```bash
    poetry install --no-root
