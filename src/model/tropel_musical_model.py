@@ -155,3 +155,37 @@ def create_domino(
     shape.collision_type = 1
     space.add(body, shape)
     return body, shape
+
+
+def create_lever(
+    space: pymunk.Space,
+    start: Tuple[float, float] = (899, 626),
+    end: Tuple[float, float] = (1055, 626),
+    thickness: float = 10,
+    mass: float = 1.0
+) -> None:
+    """
+    Crea una palanca (balanza) en equilibrio entre start y end.
+    Se usa un PivotJoint para sostenerla en el punto medio.
+    """
+    length = end[0] - start[0]
+    pivot_x = (start[0] + end[0]) / 2
+    pivot_y = (start[1] + end[1]) / 2
+
+    pivot_body = pymunk.Body(body_type=pymunk.Body.STATIC)
+    pivot_body.position = (pivot_x, pivot_y)
+
+    moment = pymunk.moment_for_box(mass, (length, thickness))
+    lever_body = pymunk.Body(mass, moment)
+    lever_body.position = (pivot_x, pivot_y)
+    lever_shape = pymunk.Poly.create_box(lever_body, (length, thickness))
+    lever_shape.friction = 0.5
+    lever_shape.elasticity = 0.2
+
+    pivot_joint = pymunk.PivotJoint(pivot_body, lever_body, (pivot_x, pivot_y))
+
+    space.add(pivot_body, lever_body, lever_shape, pivot_joint)
+
+
+
+

@@ -11,6 +11,7 @@ from model.tropel_musical_model import (
     create_table,
     create_ramps,
     create_domino,
+    create_lever,
 )
 
 # Configuración global
@@ -24,7 +25,7 @@ DOMINO_PROPERTIES = {
     "width": 10,
     "height": 45,
     "mass": 0.5,
-    "friction": 0.5,
+    "friction": 0.4,
     "elasticity": 0.4,
     "spacing_factor": 0.4,
     "start_x": 450,
@@ -104,12 +105,14 @@ def run(window: pygame.Surface, width: int, height: int) -> None:
     clock = pygame.time.Clock()
     space = pymunk.Space()
     space.gravity = (0, GRAVITY)
+    space.damping = 0.9
     draw_options = pymunk.pygame_util.DrawOptions(window)
 
     create_boundaries(space, width, height)
     create_table(space, width - 200, TABLE_HEIGHT)
     create_ramps(space, start_x=225, start_y=START_Y)
     create_dominoes(space)
+    create_lever(space)
 
     handler = space.add_collision_handler(0, 1)
     handler.post_solve = ball_hits_domino
